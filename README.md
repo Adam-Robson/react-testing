@@ -16,3 +16,4 @@ New components will need to be written, along with their tests:
 
 The `ConfirmationButton` has tests that demonstrate its usage and prove its
 functionality.
+
