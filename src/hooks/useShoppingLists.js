@@ -27,13 +27,13 @@ export default function useShoppingLists() {
   const onCreateShoppingItem = async (shoppingListId, shoppingListItem) => {
     const dbFriendlyShoppingListItem = {
       ...shoppingListItem,
-      list_id: shoppingListId,
+      id: shoppingListId,
     };
     delete dbFriendlyShoppingListItem.id;
     const newItems = await createShoppingListItem(dbFriendlyShoppingListItem);
     const item = newItems[0];
     const newLists = [...shoppingLists];
-    const index = newLists.findIndex(list => list.id === item.list_id);
+    const index = newLists.findIndex(list => list.id === item.id);
     newLists[index].shoppingItems.unshift(item);
     setShoppingLists(newLists);
   };
@@ -44,7 +44,7 @@ export default function useShoppingLists() {
     await updateShoppingListItem(shoppingListItem);
     const newLists = [...shoppingLists];
     const listIndex = newLists.findIndex(list => {
-      return list.id === shoppingListItem.list_id;
+      return list.id === shoppingListItem.id;
     });
     const newList = newLists[listIndex];
     const itemIndex = newList.shoppingItems.findIndex(item => {
@@ -63,7 +63,7 @@ export default function useShoppingLists() {
     await updateShoppingListItem(shoppingListItem);
     const newLists = [...shoppingLists];
     const listIndex = newLists.findIndex(list => {
-      return list.id === shoppingListItem.list_id;
+      return list.id === shoppingListItem.id;
     });
     const newList = newLists[listIndex];
     const itemIndex = newList.shoppingItems.findIndex(item => {

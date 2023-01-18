@@ -16,7 +16,7 @@ export async function getShoppingLists() {
   // want. Scoping appears to be something not directly supported by supabase,
   // so just do an n+1 query for now.
   const response = await client
-    .from('shopping-lists')
+    .from('anon-shopping-lists')
     .select('*')
     .order('created_at', { ascending: false })
   ;
@@ -27,7 +27,7 @@ export async function getShoppingLists() {
 
 export async function createShoppingList(shoppingList) {
   const response = await client
-    .from('shopping-lists')
+    .from('anon-shopping-lists')
     .insert(shoppingList)
     .select();
   return checkError(response);
@@ -35,7 +35,7 @@ export async function createShoppingList(shoppingList) {
 
 export async function updateShoppingList(shoppingList) {
   const response = await client
-    .from('shopping-lists')
+    .from('anon-shopping-lists')
     .update(shoppingList)
     .eq('id', shoppingList.id)
   ;
@@ -44,7 +44,7 @@ export async function updateShoppingList(shoppingList) {
 
 export async function deleteShoppingList(shoppingListId) {
   const response = await client
-    .from('shopping-lists')
+    .from('anon-shopping-lists')
     .delete()
     .eq('id', shoppingListId)
   ;

@@ -2,9 +2,9 @@ import { client, checkError } from './client.js';
 
 export async function getShoppingListItemsByShoppingListId(shoppingList) {
   const response = await client
-    .from('shopping-lists')
+    .from('anon-shopping-list-items')
     .select('*')
-    .eq('list_id', shoppingList.id)
+    .eq('id', shoppingList.id)
     .order('created_at', { ascending: false })
   ;
   const shoppingListItems = checkError(response);
@@ -13,7 +13,7 @@ export async function getShoppingListItemsByShoppingListId(shoppingList) {
 
 export async function createShoppingListItem(shoppingListItem) {
   const response = await client
-    .from('shopping-lists')
+    .from('anon-shopping-list-items')
     .insert(shoppingListItem)
     .select()
   ;
@@ -23,7 +23,7 @@ export async function createShoppingListItem(shoppingListItem) {
 
 export async function updateShoppingListItem(shoppingListItem) {
   const response = await client
-    .from('shopping-lists')
+    .from('anon-shopping-list-items')
     .update(shoppingListItem)
     .eq('id', shoppingListItem.id)
   ;
@@ -32,7 +32,7 @@ export async function updateShoppingListItem(shoppingListItem) {
 
 export async function deleteShoppingListItem(shoppingListItemId) {
   const response = await client
-    .from('shopping-lists')
+    .from('anon-shopping-list-items')
     .delete()
     .eq('id', shoppingListItemId)
   ;
