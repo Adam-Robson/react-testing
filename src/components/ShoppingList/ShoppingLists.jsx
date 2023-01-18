@@ -8,12 +8,13 @@ export default function ShoppingLists({
   onDeleteShoppingItem,
   shoppingLists,
 }) {
+  console.log({ shoppingLists });
   return <div>
     <ShoppingListForm 
       id="new" 
       data-testid="list-form" 
       onSubmit={onCreateShoppingList} />
-    <ol data-testid="shopping-lists" className="shopping-lists">
+    <ol data-testid="shopping-lists">
       {shoppingLists.map(shoppingList => {
         return <li key={shoppingList.id}>
           <ShoppingList

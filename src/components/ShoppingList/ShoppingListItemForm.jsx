@@ -19,7 +19,7 @@ export default function ShoppingListItemForm(item) {
           handleSubmit(item);
         } }>
         <input 
-          data-testid={'shopping-list-form-item'}
+          data-testid="shopping-list-form-item"
           type="text" 
           placeholder="Enter item name" 
           value={ item.item_name } 

@@ -9,13 +9,13 @@ export default function ShoppingListItem({
         data-testid="shopping-list-item-checkbox"
         type="checkbox" 
         onChange={ () => {
-          return onUpdateShoppingItem(!shoppingItem.checked);
+          return onUpdateShoppingItem(!shoppingItem.item_checked);
         } } />
 
       <button
         type="button"
         onClick={ async () => {
-          await onDeleteShoppingItem(shoppingItem.id);
+          await onDeleteShoppingItem(shoppingItem.item_id);
         } }>delete</button>
     </>
   );
