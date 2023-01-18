@@ -7,8 +7,9 @@ export default function ShoppingList({
   onUpdateShoppingItem,
   onDeleteShoppingItem,
 }) {
+
   return <div>
-    <div data-testid={`shopping-list-name-${shoppingList.id}`}>
+    <div data-testid={`shopping-list-name-${shoppingList.list_id}`}>
       {shoppingList.list_name}
     </div>
     <ShoppingListItemForm 
@@ -18,9 +19,11 @@ export default function ShoppingList({
       }} />
     <ol data-testid={`shopping-list-${shoppingList.list_id}`}>
       {
+        
         shoppingList.shoppingItems.map((shoppingItem) => {
           return <li key={shoppingItem.list_id}>
             <ShoppingListItem
+
               onUpdateShoppingItem={onUpdateShoppingItem}
               onDeleteShoppingItem={onDeleteShoppingItem}
               shoppingItem={shoppingItem}

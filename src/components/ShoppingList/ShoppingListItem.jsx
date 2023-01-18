@@ -16,7 +16,7 @@ export default function ShoppingListItem({
         type="button"
         onClick={ async () => {
           await onDeleteShoppingItem(shoppingItem.id);
-        } }></button>
+        } }>delete</button>
     </>
   );
 }
