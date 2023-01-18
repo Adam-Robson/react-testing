@@ -9,15 +9,17 @@ export default function ShoppingList({
 }) {
   return <div>
     <div data-testid={`shopping-list-name-${shoppingList.id}`}>
-      {shoppingList.name}
+      {shoppingList.list_name}
     </div>
-    <ShoppingListItemForm id="new-shopping-item" onSubmit={(shoppingItem) => {
-      onCreateShoppingItem(shoppingList.id, shoppingItem);
-    }} />
-    <ol data-testid={`shopping-list-${shoppingList.id}`}>
+    <ShoppingListItemForm 
+      data-testid="list-item-form" 
+      onSubmit={(shoppingItem) => {
+        onCreateShoppingItem(shoppingList.list_id, shoppingItem);
+      }} />
+    <ol data-testid={`shopping-list-${shoppingList.list_id}`}>
       {
         shoppingList.shoppingItems.map((shoppingItem) => {
-          return <li key={shoppingItem.id}>
+          return <li key={shoppingItem.list_id}>
             <ShoppingListItem
               onUpdateShoppingItem={onUpdateShoppingItem}
               onDeleteShoppingItem={onDeleteShoppingItem}

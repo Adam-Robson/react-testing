@@ -1,10 +1,10 @@
 import { getShoppingLists } from '../services/shopping-lists.js';
 import { useState, useEffect } from 'react';
-import { createShoppingList } from '../services/shopping-lists.js';
 import {
   createShoppingListItem,
   updateShoppingListItem,
 } from '../services/shopping-list-items.js';
+import { createShoppingList } from '../services/shopping-lists';
 
 export default function useShoppingLists() {
   const [shoppingLists, setShoppingLists] = useState([]);
@@ -27,13 +27,13 @@ export default function useShoppingLists() {
   const onCreateShoppingItem = async (shoppingListId, shoppingListItem) => {
     const dbFriendlyShoppingListItem = {
       ...shoppingListItem,
-      shopping_list_id: shoppingListId,
+      list_id: shoppingListId,
     };
     delete dbFriendlyShoppingListItem.id;
     const newItems = await createShoppingListItem(dbFriendlyShoppingListItem);
     const item = newItems[0];
     const newLists = [...shoppingLists];
-    const index = newLists.findIndex(list => list.id === item.shopping_list_id);
+    const index = newLists.findIndex(list => list.id === item.list_id);
     newLists[index].shoppingItems.unshift(item);
     setShoppingLists(newLists);
   };
@@ -44,7 +44,7 @@ export default function useShoppingLists() {
     await updateShoppingListItem(shoppingListItem);
     const newLists = [...shoppingLists];
     const listIndex = newLists.findIndex(list => {
-      return list.id === shoppingListItem.shopping_list_id;
+      return list.id === shoppingListItem.list_id;
     });
     const newList = newLists[listIndex];
     const itemIndex = newList.shoppingItems.findIndex(item => {
@@ -63,7 +63,7 @@ export default function useShoppingLists() {
     await updateShoppingListItem(shoppingListItem);
     const newLists = [...shoppingLists];
     const listIndex = newLists.findIndex(list => {
-      return list.id === shoppingListItem.shopping_list_id;
+      return list.id === shoppingListItem.list_id;
     });
     const newList = newLists[listIndex];
     const itemIndex = newList.shoppingItems.findIndex(item => {
