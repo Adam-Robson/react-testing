@@ -7,7 +7,8 @@ ShoppingListItemForm
 describe('shopping list item form', () => {
   test('renders input for description of item', () => {
     render(<ShoppingListItemForm></ShoppingListItemForm>);
-    expect(screen.getByTestId('shopping-list-form-item'))
+    expect(screen.getByTestId(
+      'shopping-list-form-item'))
       .toHaveAttribute('placeholder', 'Enter item name');
   });
 });

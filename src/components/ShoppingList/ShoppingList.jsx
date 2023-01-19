@@ -10,7 +10,7 @@ export default function ShoppingList({
 
   return <div>
     <div data-testid={`shopping-list-name-${shoppingList.id}`}>
-      {shoppingList.list_name}
+      {shoppingList.name}
     </div>
     <ShoppingListItemForm 
       data-testid="list-item-form" 

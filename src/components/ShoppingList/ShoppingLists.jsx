@@ -8,6 +8,7 @@ export default function ShoppingLists({
   onDeleteShoppingItem,
   shoppingLists,
 }) {
+  console.log({ shoppingLists })
   return <div>
     <ShoppingListForm 
       id="new" 

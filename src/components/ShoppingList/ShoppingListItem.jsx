@@ -6,10 +6,10 @@ export default function ShoppingListItem({
   return (
     <>
       <input 
-        data-testid="shopping-list-item-checkbox"
-        type="checkbox" 
+        data-testid="shopping-list-item-text"
+        type="text" 
         onChange={ () => {
-          return onUpdateShoppingItem(!shoppingItem.item_checked);
+          return onUpdateShoppingItem(shoppingItem);
         } } />
 
       <button
