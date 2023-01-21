@@ -5,18 +5,20 @@ export default function ShoppingListItem({
 }) {
   return (
     <>
-      <input 
-        data-testid="shopping-list-item-text"
-        type="text" 
-        onChange={ () => {
-          return onUpdateShoppingItem(shoppingItem);
-        } } />
+      <form>
+        <input 
+          data-testid="shopping-list-item-text"
+          type="text" 
+          onChange={ () => {
+            return onUpdateShoppingItem(shoppingItem);
+          } } />
 
-      <button
-        type="button"
-        onClick={ async () => {
-          await onDeleteShoppingItem(shoppingItem.id);
-        } }>delete</button>
+        <button
+          type="button"
+          onClick={ async () => {
+            await onDeleteShoppingItem(shoppingItem.id);
+          } }>delete</button>
+      </form>
     </>
   );
 }

@@ -11,7 +11,6 @@ export default function ShoppingLists({
   return <div>
     <ShoppingListForm 
       id="new" 
-      data-testid="list-form" 
       onSubmit={onCreateShoppingList} />
     <ol data-testid="shopping-lists">
       {shoppingLists.map(shoppingList => {

@@ -9,7 +9,7 @@ export default function ShoppingList({
 }) {
 
   return <div>
-    <div data-testid={`shopping-list-name-${shoppingList.id}`}>
+    <div data-testid={`shopping-list-name-${shoppingList.name}`}>
       {shoppingList.name}
     </div>
     <ShoppingListItemForm 
@@ -19,7 +19,6 @@ export default function ShoppingList({
       }} />
     <ol data-testid={`shopping-list-${shoppingList.id}`}>
       {
-        
         shoppingList.shoppingItems.map((shoppingItem) => {
           return <li key={shoppingItem.id}>
             <ShoppingListItem
