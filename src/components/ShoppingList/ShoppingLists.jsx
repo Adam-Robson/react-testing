@@ -9,11 +9,14 @@ export default function ShoppingLists({
   shoppingLists,
 }) {
   return <div>
-    <ShoppingListForm id="new" onSubmit={onCreateShoppingList} />
+    <ShoppingListForm 
+      id="new" 
+      onSubmit={onCreateShoppingList} />
     <ol data-testid="shopping-lists">
       {shoppingLists.map(shoppingList => {
         return <li key={shoppingList.id}>
           <ShoppingList
+            data-testid="shopping-list-item"
             onCreateShoppingItem={onCreateShoppingItem}
             onUpdateShoppingItem={onUpdateShoppingItem}
             onDeleteShoppingItem={onDeleteShoppingItem}

@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const defaultShoppingList = {
   id: null,
-  name: '',
+  list_name: '',
   shoppingItems: [],
 };
 
@@ -21,10 +21,10 @@ export default function ShoppingListForm({ id, shoppingList, onSubmit }) {
   >
     <input
       data-testid={`shopping-list-form-name-${id}`}
-      value={currentShoppingList.name}
+      value={currentShoppingList.list_name}
       onChange={(e) => setCurrentShoppingList({
         ...currentShoppingList,
-        name: e.target.value,
+        list_name: e.target.value,
       })}
     />
     <button

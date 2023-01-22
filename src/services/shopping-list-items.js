@@ -4,7 +4,7 @@ export async function getShoppingListItemsByShoppingListId(shoppingList) {
   const response = await client
     .from('anon-shopping-list-items')
     .select('*')
-    .eq('shopping_list_id', shoppingList.id)
+    .eq('id', shoppingList.id)
     .order('created_at', { ascending: false })
   ;
   const shoppingListItems = checkError(response);
