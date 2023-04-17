@@ -29,8 +29,7 @@ export async function createShoppingList(shoppingList) {
   const response = await client
     .from('anon-shopping-lists')
     .insert(shoppingList)
-    .select()
-  ;
+    .select();
   return checkError(response);
 }
 
