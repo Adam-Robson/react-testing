@@ -24,9 +24,9 @@ const USER_KEY = 'USER';
 
 export function storeLocalUser(user) {
   if (user) {
-    localStorage.setItem(USER_KEY, JSON.stringify(user));
+    return localStorage.setItem(USER_KEY, JSON.stringify(user));
   } else {
-    localStorage.removeItem(USER_KEY);
+    return localStorage.removeItem(USER_KEY);
   }
 }
 

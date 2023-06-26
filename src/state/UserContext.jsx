@@ -21,7 +21,7 @@ export default function UserProvider({ children }) {
 
   const verify = async () => {
     const response = await verifyUser();
-    setUser(response.session.user || null);
+    setUser(response.user || null);
   };
 
   useEffect(() => {
@@ -33,13 +33,8 @@ export default function UserProvider({ children }) {
     setUserState(user);
   };
 
-  const value = {
-    user,
-    setUser,
-  };
-
   return (
-    <UserContext.Provider value={value}>
+    <UserContext.Provider value={{ user, setUser }}>
       {children}
     </UserContext.Provider>
   );
